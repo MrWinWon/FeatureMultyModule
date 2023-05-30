@@ -1,0 +1,217 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        kotlin_version = "1.8.0"
+        def buildNumber = 33
+        buildConfig = [
+                'compileSdk': 33,
+                'minSdk'    : 24,
+                'targetSdk' : 32,
+                'tools'     : '30.0.3',
+                'version'   : [
+                        'code': 23,
+                        'name': "1.5.$buildNumber"
+                ],
+                'id'        : 'com.joyjet'
+        ]
+        versions = [
+                'gradle'                 : '7.3.1',
+                'appcompat'              : '1.5.0',
+                'constraintlayout'       : '2.1.4',
+                'coordinatorlayout'      : '1.2.0',
+                'cicerone'               : '7.1',
+                'core_ktx'               : '1.10.1',
+                'kotlin'                 : '1.4.32',
+                'kotlinCoroutines'       : '1.6.4',
+                'coroutinesPlayServices' : '1.6.4',
+                'lifecycle'              : '2.5.1',
+                'dagger'                 : '2.43.2',
+                'hilt'                   : '2.43.2',
+                'hilt_navigation'        : '1.0.0',
+                'retrofit'               : '2.9.0',
+                'chuck'                  : '3.5.2',
+                'gson_version'           : '2.9.0',
+                'data_store'             : '1.0.0',
+                'junit'                  : '4.13.2',
+                'android_test_junit'     : '1.1.4',
+                'android_esspresso'      : '3.4.0',
+                'r8'                     : '3.3.75',
+                'nav_version'            : '2.5.0-alpha01',
+                'crashanalytics'         : '2.9.1',
+                'google_services'        : '4.3.13',
+                'material'               : '1.9.0',
+                'billing_version'        : '5.0.0',
+                'serialization_json'     : '1.4.1',
+                'firebase_invites'       : '17.0.0',
+                'firebase_database_kts'  : '20.1.0',
+                'yandex_metrica'         : '5.0.1',
+                'legacy'                 : '1.0.0',
+                'navigation'             : '2.5.1',
+                'timber'                 : '5.0.1',
+                'retrofit_serialization' : '0.8.0',
+                'okhttp3'                : '5.0.0-alpha.10',
+                'room'                   : '2.4.3',
+                'chart'                  : 'v3.1.0',
+                'lottie'                 : '5.2.0',
+                'redmadrobot_livedata'   : '2.3.1-0',
+                'redmadrobot_rsc'        : '1.3.1-0',
+                'expandable_text'        : '1.0.5',
+                'rotate_layout'          : 'v3.0.0',
+                'emoji'                  : '0.8.0',
+                'browser'                : '1.4.0',
+                'desugar'                : '1.2.2',
+                'fragment'               : '1.5.2',
+                'services_api_phone'     : '18.0.1',
+                'services_auth'          : '20.3.0',
+                'google_gson'            : '2.9.1',
+                'exoplayer'              : '2.18.1',
+                'zoomy'                  : '1.0.0',
+                'roundedimageview'       : '2.3.0',
+                'javax'                  : '1.0',
+                'javax_inject'           : '1',
+                'lifecycle_extentions'   : '1.1.1',
+                'rxjava2'                : '2.1.1',
+                'rxandroid'              : '1.2.1',
+                'glide'                  : '4.13.2',
+                'blurry'                 : '4.0.1',
+                'java_jwt'               : '4.0.0',
+                'swiperefreshlayout'     : '1.1.0',
+                'scrollingpagerindicator': '1.2.3',
+                'firevase_bom'           : '28.2.0',
+                'location'               : '20.0.0',
+                'libphonenumber'         : '8.12.54',
+                'parceler'               : '1.1.13',
+                'validator'              : '1.7',
+                'transition'             : '1.2.0-rc01',
+                'exifinterface'          : '1.1.0-beta01',
+                'zoomable_video'         : '1.0.0',
+                'mvi'                    : '1.2.6',
+                'zoom'                   : '1.9.0',
+                'photoview'              : '2.3.0',
+                'gaussianblur'           : '1.0.3',
+                'camerax_version'        : '1.2.0-beta02',
+                'concurrent_ktx'         : '1.1.0',
+                'shimmer'                : '0.5.0',
+                'core_testing'           : '2.1.0',
+                'test_rules'             : '1.5.0',
+                'test_runner'            : '1.5.1',
+                'viewBindingDelegation'  : '2.0.1',
+
+        ]
+        deps = [
+                'androidx'               : [
+                        core_testing       : "androidx.arch.core:core-testing:${versions.core_testing}",
+                        appcompat          : "androidx.appcompat:appcompat:${versions.appcompat}",
+                        constraintlayout   : "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}",
+                        coordinatorlayout  : "androidx.coordinatorlayout:coordinatorlayout:${versions.coordinatorlayout}",
+                        core_ktx           : "androidx.core:core-ktx:${versions.core_ktx}",
+                        viewModel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+                        liveData           : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}",
+                        runtime            : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}",
+                        savedstate         : "androidx.lifecycle:lifecycle-viewmodel-savedstate:${versions.lifecycle}",
+                        reactivestreams    : "androidx.lifecycle:lifecycle-reactivestreams-ktx:${versions.lifecycle}",
+                        dataStore          : "androidx.datastore:datastore-preferences:${versions.data_store}",
+                        room_runtime       : "androidx.room:room-runtime:${versions.room}",
+                        room_compiler      : "androidx.room:room-compiler:${versions.room}",
+                        room_ktx           : "androidx.room:room-ktx:${versions.room}",
+                        room_testing       : "androidx.room:room-testing:${versions.room}",
+                        fragment           : "androidx.fragment:fragment-ktx:${versions.fragment}",
+                        swiperefreshlayout : "androidx.swiperefreshlayout:swiperefreshlayout:${versions.swiperefreshlayout}",
+                        transition         : "androidx.transition:transition:${versions.transition}",
+                        exifinterface      : "androidx.exifinterface:exifinterface:${versions.exifinterface}",
+                        concurrent_ktx     : "androidx.concurrent:concurrent-futures-ktx:${versions.concurrent_ktx}",
+                ],
+                'jetbrains'              : [
+                        stdlib            : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+                        coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinCoroutines}",
+                        coroutinesPlayServices: "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${versions.coroutinesPlayServices}",
+                        serialization_json: "org.jetbrains.kotlinx:kotlinx-serialization-json:${versions.serialization_json}",
+                ],
+                'dagger'                 : [
+                        common         : "com.google.dagger:dagger:${versions.dagger}",
+                        compiler       : "com.google.dagger:dagger-compiler:${versions.dagger}",
+                        processor      : "com.google.dagger:dagger-android-processor:${versions.dagger}",
+                        android        : "com.google.dagger:dagger-android:${versions.dagger}",
+                        android_support: "com.google.dagger:dagger-android-support:${versions.dagger}",
+                ],
+                'hilt'                   : [
+                        android   : "com.google.dagger:hilt-android:${versions.hilt}",
+                        compiler  : "com.google.dagger:hilt-compiler:${versions.hilt}",
+                        navigation: "androidx.hilt:hilt-navigation-fragment:${versions.hilt_navigation}",
+                        plugin    : "com.google.dagger:hilt-android-gradle-plugin:${versions.hilt}",
+                ],
+                'squareup'               : [
+                        retrofit         : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                        converter_gson   : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+                        serialization    : "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${versions.retrofit_serialization}",
+                        login_interceptor: "com.squareup.okhttp3:logging-interceptor:${versions.okhttp3}",
+                        okhttp           : "com.squareup.okhttp3:okhttp:${versions.okhttp3}",
+                ],
+                'chuck'                  : [
+                        chuck_compile: "com.github.chuckerteam.chucker:library:${versions.chuck}",
+                        chuck_release: "com.github.chuckerteam.chucker:library-no-op:${versions.chuck}",
+                ],
+                'test'                   : [
+                        junit                    : "junit:junit:${versions.junit}",
+                        androidTestJunit         : "androidx.test.ext:junit:${versions.android_test_junit}",
+                        androidTestRules         : "androidx.test:rules:${versions.test_rules}",
+                        androidTestRunner        : "androidx.test:runner:${versions.test_runner}",
+                        androidTestJunitEsspresso: "androidx.test.espresso:espresso-core:${versions.android_esspresso}",
+                ],
+                'firebase'               : [
+                        'crashlytics_ktx': "com.google.firebase:firebase-crashlytics-ktx",
+                        'analytics_ktx'  : "com.google.firebase:firebase-analytics-ktx",
+                ],
+                'redmadrobot'            : [
+                        'livedata_ktx' : "com.redmadrobot.extensions:lifecycle-livedata-ktx:${versions.redmadrobot_livedata}",
+                        'resources_ktx': "com.redmadrobot.extensions:resources-ktx:${versions.redmadrobot_rsc}"
+                ],
+                'google'                 : [
+                        'material_component': "com.google.android.material:material:${versions.material}",
+                        'location'          : "com.google.android.gms:play-services-location:${versions.location}",
+                        'api_phone'         : "com.google.android.gms:play-services-auth-api-phone:${versions.services_api_phone}",
+                        'gson'              : "com.google.code.gson:gson:${versions.google_gson}",
+                ],
+                'glide'                  : [
+                        'core'    : "com.github.bumptech.glide:glide:${versions.glide}",
+                        'compiler': "com.github.bumptech.glide:compiler:${versions.glide}",
+                ],
+                'parceler'               : [
+                        'parceler'    : "org.parceler:parceler:${versions.parceler}",
+                        'parceler_api': "org.parceler:parceler-api:${versions.parceler}",
+                ],
+                'camerax'                : [
+                        'core'      : "androidx.camera:camera-core:${versions.camerax_version}",
+                        'camera2'   : "androidx.camera:camera-camera2:${versions.camerax_version}",
+                        'lifecycle' : "androidx.camera:camera-lifecycle:${versions.camerax_version}",
+                        'video'     : "androidx.camera:camera-video:${versions.camerax_version}",
+
+                        'view'      : "androidx.camera:camera-view:${versions.camerax_version}",
+                        'extensions': "androidx.camera:camera-extensions:${versions.camerax_version}",
+                ],
+                'gson'                   : "com.google.code.gson:gson:${versions.gson_version}",
+                'timber'                 : "com.jakewharton.timber:timber:${versions.timber}",
+                'lottie'                 : "com.airbnb.android:lottie:${versions.lottie}",
+                'viewBindingDelegation'  : "io.github.vsukharew:viewbindingdelegation:${versions.viewBindingDelegation}",
+                'cicerone'               : "com.github.terrakok:cicerone:${versions.cicerone}"
+        ]
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools:r8:${versions.r8}"
+        classpath "com.android.tools.build:gradle:$versions.gradle"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:${versions.crashanalytics}"
+        classpath "com.google.gms:google-services:${versions.google_services}"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.nav_version}"
+        classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlin_version")
+        classpath deps.hilt.plugin
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

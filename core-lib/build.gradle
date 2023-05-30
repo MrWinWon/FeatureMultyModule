@@ -1,0 +1,56 @@
+
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id "kotlin-kapt"
+}
+android {
+    namespace 'ru.mrwinwon.core_lib'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':core-ui')
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.appcompat
+    implementation deps.cicerone
+    implementation deps.google.material_component
+    implementation 'androidx.databinding:viewbinding:8.0.2'
+    implementation(deps.jetbrains.coroutines_android)
+    testImplementation(deps.test.junit)
+
+    implementation deps.dagger.common
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    kapt(deps.dagger.processor)
+    kapt(deps.dagger.compiler)
+
+//    // MVI
+//    implementation(deps.mvi)
+    // rmr extensions
+    implementation(deps.redmadrobot.livedata_ktx)
+    implementation(deps.redmadrobot.resources_ktx)
+}

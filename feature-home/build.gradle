@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id "kotlin-kapt"
+}
+
+android {
+    namespace 'ru.mrwinwon.feature_home'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    dataBinding {
+        enabled = false
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':core-ui')
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.appcompat
+    implementation deps.google.material_component
+    implementation deps.viewBindingDelegation
+    implementation 'androidx.databinding:viewbinding:8.0.2'
+    implementation(deps.jetbrains.coroutines_android)
+    implementation project(path: ':core-lib')
+    testImplementation(deps.test.junit)
+    implementation deps.cicerone
+
+    // Hilt
+    implementation deps.hilt.android
+    kapt deps.hilt.compiler
+    implementation deps.hilt.navigation
+}

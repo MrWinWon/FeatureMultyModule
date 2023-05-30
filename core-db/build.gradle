@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id "kotlin-kapt"
+    id "kotlinx-serialization"
+}
+
+android {
+    namespace 'ru.mrwinwon.core_db'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    implementation project(':core-ui')
+    implementation project(':core-lib')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.appcompat
+    testImplementation(deps.test.junit)
+
+    implementation deps.androidx.room_compiler
+    implementation deps.androidx.room_runtime
+    implementation deps.androidx.room_ktx
+    implementation deps.androidx.room_testing
+
+    implementation deps.google.gson
+    implementation deps.timber
+
+    // dagger
+    implementation deps.dagger.common
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    kapt(deps.dagger.processor)
+    kapt(deps.dagger.compiler)
+}
