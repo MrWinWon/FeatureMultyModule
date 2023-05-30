@@ -13,10 +13,11 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "FeatureMultyModule"
-include ':app'
 include ':core-lib'
 include ':core-ui'
 include ':core-db'
 include ':core-network'
 include ':domain-user'
 include ':feature-home'
+include ':application'
+include ':featureapp'
