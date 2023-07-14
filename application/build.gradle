@@ -62,4 +62,7 @@ dependencies {
     implementation deps.dagger.android_support
     kapt(deps.dagger.processor)
     kapt(deps.dagger.compiler)
+
+    implementation deps.cicerone
+
 }

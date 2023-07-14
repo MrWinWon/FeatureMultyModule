@@ -42,15 +42,14 @@ dependencies {
     implementation(deps.jetbrains.coroutines_android)
     testImplementation(deps.test.junit)
 
+    // Hilt
+    implementation deps.hilt.android
+    kapt deps.hilt.compiler
+    implementation deps.hilt.navigation
+    // dagger
     implementation deps.dagger.common
     implementation deps.dagger.android
     implementation deps.dagger.android_support
     kapt(deps.dagger.processor)
     kapt(deps.dagger.compiler)
-
-//    // MVI
-//    implementation(deps.mvi)
-    // rmr extensions
-    implementation(deps.redmadrobot.livedata_ktx)
-    implementation(deps.redmadrobot.resources_ktx)
 }
